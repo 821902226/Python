@@ -5,10 +5,10 @@ import random
 x = range(120)
 y = [random.randint(20, 35) for i in range(120)]
 
-plt.figure(figsize=(20, 12), dpi=80)
+plt.figure(figsize=(16, 10), dpi=80)
 
 # x轴样式设置
-x_label = ['{}时{}分'.format(int((i / 60) + 8), int(i % 60) + 8) for i in x]
+x_label = ['{}时{}分'.format(int((i / 60) + 8), int((i % 60) + 8)) for i in x]
 
 # 设置中文字体，在终端输入fc-list :lang=zh查看系统支持的中文字体， fc-list查看支持的所有字体
 my_font = font_manager.FontProperties(fname='/usr/share/fonts/opentype/noto/NotoSerifCJK-Bold.ttc', size=16)
