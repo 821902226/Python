@@ -1,0 +1,2 @@
+折线图： plt.plot(x, y)
+散点图： plt.scatter(x, y)
