@@ -1,0 +1,9 @@
+# 非监督学习没有目标值
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score # 用来求轮廓系数（-1, 1）
+
+# n_clusters表示可以分为几个类别
+km = KMeans(n_clusters=4)
+
+# X表示初始的所有特征值， labels表示被聚类算法标记的目标值
+ss = silhouette_score(X, labels)
