@@ -1,11 +1,10 @@
-# tensorflow对鸢尾花分类(多分类)
+# tensorflow逻辑回归对鸢尾花分类(多分类)
 from sklearn.datasets import load_iris
 import tensorflow as tf
 
 # 获取鸢尾花数据
 iris = load_iris()
 
-# 从三种花中取出两个品种
 x_train = iris.data
 y_train = iris.target
 
