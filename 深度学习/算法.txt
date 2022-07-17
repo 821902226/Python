@@ -1,0 +1,20 @@
+1.归一化，标准化
+x = (x-min(x))/(max(x)-min(x))  # 归一化
+x = x-tf.reduce_mean(x) # 标准化
+
+2.线性回归
+y = w*x + b
+loss = 1/2n * ∑(y-y_pre)²   # 平方损失函数
+
+3.逻辑回归
+y = 1/(1+exp(-(w*x + b)))
+loss = -∑(y*ln(y_pre)+(1-y)*ln(1-y_pre))   # 交叉熵损失函数
+
+4.多分类
+y = tf.nn.softmax(tf.matmul(x, w))  # 将预测值转化为标签
+loss = -∑∑(y*ln(y_pre))   # 交叉熵损失函数
+
+5.神经网络
+y = tf.nn.softmax(tf.matmul(x_train, w)+b)  # 使用了激活函数
+loss = tf.reduce_mean(tf.keras.losses.categorical_crossentropy(y_train, y_pre_train))   # 交叉熵损失函数
+常见激活函数： tf.nn.relu   tf.nn.tanh  tf.nn.sigmoid
