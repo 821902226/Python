@@ -1,4 +1,4 @@
-# tensorflow逻辑回归对鸢尾花分类(多分类)
+# softmax回归对鸢尾花分类(多分类)
 from sklearn.datasets import load_iris
 import tensorflow as tf
 
