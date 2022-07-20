@@ -22,7 +22,7 @@ class Stack(object):
 
     def is_empty(self):
         """判断栈是否为空"""
-        return self.__data is None
+        return self.length == 0
 
     def length(self):
         """返回栈的长度"""
