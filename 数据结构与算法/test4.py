@@ -1,11 +1,11 @@
-# 冒泡排序
+# 冒泡排序（从无序序列中选出最大值）
 
 def bubble_sort(alist):
     length = len(alist)
     # 总共要进行n-1次冒泡
     for i in range(length-1):
         count = 0
-        # 每一次冒泡选出剩余数据中的最大值
+        # 每一次冒泡从无序的序列中选出最大值
         for j in range(length-i-1):
             if alist[j] > alist[j+1]:
                 alist[j], alist[j+1] = alist[j+1], alist[j]
