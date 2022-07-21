@@ -34,6 +34,7 @@ def binary_search_02(alist, data):
 
 if __name__ == "__main__":
     alist = [17, 20, 26, 31, 44, 54, 55, 77, 93]
+    # 查找的序列必须为有序序列
     flag1 = binary_search_01(alist, 32)
     flag2 = binary_search_02(alist, 77)
     print(flag1)
