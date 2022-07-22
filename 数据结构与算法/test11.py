@@ -18,6 +18,7 @@ class Tree(object):
             self.root = node
         else:
             queue = [self.root]
+
             while True:
                 cur_node = queue.pop(0)
                 if cur_node.left is None:
@@ -41,8 +42,8 @@ class Tree(object):
                 cur_node = queue.pop(0)
                 print(cur_node.data, end=' ')
                 if cur_node.left is not None:
-                    queue.append(cur_node.left)
-                if cur_node.right is not None:
+                    queue.append(cur_node.left)    
+
                     queue.append(cur_node.right)
             print('')
 
