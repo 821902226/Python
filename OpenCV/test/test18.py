@@ -25,7 +25,7 @@ img = cv2.imread('./test.jpg')
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 # 自适应阈值二值化
 binary_adaptive = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 15, 0)
-# 图像的腐蚀（首先需要构建卷积核，iteration设置图像的腐蚀次数）
+# 图像的腐蚀（首先需要构建卷积核，iteration设置图像的腐蚀次数，四周都为1时结果才为1-->相对于矩形卷积核而言）
 kernel = np.ones((3, 3), 'uint8')
 erode = cv2.erode(binary_adaptive, kernel, iterations=1)
 # 获取形态学卷积核
@@ -35,7 +35,7 @@ kernel_cross = cv2.getStructuringElement(cv2.MORPH_CROSS, (3, 3))
 rect = cv2.erode(binary_adaptive, kernel_rect, iterations=1)
 ellipse = cv2.erode(binary_adaptive, kernel_ellipse, iterations=1)
 cross = cv2.erode(binary_adaptive, kernel_cross, iterations=1)
-# 图像的膨胀
+# 图像的膨胀（中心点是1，则周围都是1-->相对于矩形卷积核而言）
 dilate = cv2.dilate(cross, kernel_cross, iterations=1)
 
 while True:
