@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-
+# 膨胀用于消除图形内部的噪点、腐蚀用于消除图形外部的噪点
 # 创建窗口
 cv2.namedWindow('img', cv2.WINDOW_NORMAL)
 cv2.namedWindow('gray', cv2.WINDOW_NORMAL)
