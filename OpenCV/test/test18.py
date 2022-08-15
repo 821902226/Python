@@ -9,6 +9,7 @@ cv2.namedWindow('erode', cv2.WINDOW_NORMAL)
 cv2.namedWindow('rect', cv2.WINDOW_NORMAL)
 cv2.namedWindow('ellipse', cv2.WINDOW_NORMAL)
 cv2.namedWindow('cross', cv2.WINDOW_NORMAL)
+cv2.namedWindow('dilate', cv2.WINDOW_NORMAL)
 # 调整窗口大小
 cv2.resizeWindow('img', 600, 600)
 cv2.resizeWindow('gray', 600, 600)
@@ -17,6 +18,7 @@ cv2.resizeWindow('erode', 600, 600)
 cv2.resizeWindow('rect', 600, 600)
 cv2.resizeWindow('ellipse', 600, 600)
 cv2.resizeWindow('cross', 600, 600)
+cv2.resizeWindow('dilate', 600, 600)
 # 读取图片
 img = cv2.imread('./test.jpg')
 # 色彩空间变换
@@ -27,13 +29,14 @@ binary_adaptive = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_
 kernel = np.ones((3, 3), 'uint8')
 erode = cv2.erode(binary_adaptive, kernel, iterations=1)
 # 获取形态学卷积核
-kernel_rect = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
-kernel_ellipse = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
-kernel_cross = cv2.getStructuringElement(cv2.MORPH_CROSS, (5, 5))
+kernel_rect = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+kernel_ellipse = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
+kernel_cross = cv2.getStructuringElement(cv2.MORPH_CROSS, (3, 3))
 rect = cv2.erode(binary_adaptive, kernel_rect, iterations=1)
 ellipse = cv2.erode(binary_adaptive, kernel_ellipse, iterations=1)
 cross = cv2.erode(binary_adaptive, kernel_cross, iterations=1)
-
+# 图像的膨胀
+dilate = cv2.dilate(cross, kernel_cross, iterations=1)
 
 while True:
     # 展示图片
@@ -44,6 +47,7 @@ while True:
     cv2.imshow('rect', rect)
     cv2.imshow('ellipse', ellipse)
     cv2.imshow('cross', cross)
+    cv2.imshow('dilate', dilate)
     # 设置退出
     key = cv2.waitKey(10)
     if key == ord('q'):
