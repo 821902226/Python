@@ -1,22 +1,6 @@
 import cv2
 import numpy as np
 
-
-def drawShape(src, points):
-    """绘制多边形和凸包"""
-    i = 0
-    while i < len(points):
-        if i == len(points) - 1:
-            x1, y1 = points[i][0]
-            x2, y2 = points[0][0]
-            cv2.line(src, (x1, y1), (x2, y2), (0, 255, 0), 2)
-        else:
-            x1, y1 = points[i][0]
-            x2, y2 = points[i + 1][0]
-            cv2.line(src, (x1, y1), (x2, y2), (0, 255, 0), 2)
-        i += 1
-
-
 # 创建窗口
 cv2.namedWindow('img')
 cv2.namedWindow('gray')
