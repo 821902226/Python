@@ -19,7 +19,6 @@ search_params = {'checks': 50}
 flann = cv2.FlannBasedMatcher(index_params, search_params)
 # 对描述子进行匹配计算
 matchs = flann.knnMatch(des1, des2, k=2)
-print(matchs)
 # 绘制匹配信息
 ret = []
 for (m, n) in matchs:
